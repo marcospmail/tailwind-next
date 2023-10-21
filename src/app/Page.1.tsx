@@ -1,14 +1,8 @@
-'use client'
-
-import { Textarea } from './components/Form/Textarea'
-
-import { Bold, Italic, Link, List, ListOrdered, Mail } from 'lucide-react'
-import { FileInput } from './components/Form/FileInput'
-import { Select } from './components/Form/Select'
-import { Input } from './components/Input'
 import { SettingsTabs } from './components/SettingsTabs/index'
-import { SelectItem } from '@radix-ui/react-select'
-import { Button } from './components/Form/Button'
+import { ChevronDown, Mail } from 'lucide-react'
+import { Input } from './components/Input'
+import { FileInput } from './components/Form/FileInput'
+import * as Select from '@radix-ui/react-select'
 
 export default function Page() {
   return (
@@ -26,12 +20,19 @@ export default function Page() {
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <Button type="button" variant="outline">
+            <button
+              type="button"
+              className="texst-zinc-700 rounded-lg border border-zinc-300 px-4 py-2 text-sm font-semibold shadow-sm hover:bg-zinc-50"
+            >
               Cancel
-            </Button>
-            <Button type="submit" form="settings">
+            </button>
+            <button
+              type="submit"
+              form="settings"
+              className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-violet-700"
+            >
               Save
-            </Button>
+            </button>
           </div>
         </div>
 
@@ -111,9 +112,13 @@ export default function Page() {
               Country
             </label>
 
-            <Select.Root placeholder="Select a country...">
-              <Select.SelectItem value="br" text="Brazil" />
-              <Select.SelectItem value="usa" text="United States" />
+            <Select.Root>
+              <Select.Trigger className="flex h-11 w-full items-center justify-between gap-2 rounded-lg border border-zinc-300 px-3 py-2 shadow-sm">
+                <Select.Value className="text-black" />
+                <Select.Icon>
+                  <ChevronDown />
+                </Select.Icon>
+              </Select.Trigger>
             </Select.Root>
           </div>
 
@@ -124,17 +129,7 @@ export default function Page() {
             >
               Timezone
             </label>
-
-            <Select.Root placeholder="Select a timezone...">
-              <Select.SelectItem
-                value="utc8"
-                text="Pacific Standard Time (UTC-08:00)"
-              />
-              <Select.SelectItem
-                value="utc3"
-                text="America São Paulo (UTC-03:00)"
-              />
-            </Select.Root>
+            <div></div>
           </div>
 
           <div className="grid grid-cols-form gap-3 pt-5">
@@ -144,64 +139,7 @@ export default function Page() {
                 Write a short introduction.
               </span>
             </label>
-
-            <div className="space-y-3">
-              <div className="grid grid-cols-2 gap-3">
-                <Select.Root placeholder="" defaultValue="normal">
-                  <Select.SelectItem
-                    defaultChecked
-                    value="normal"
-                    text="Normal Text"
-                  />
-                  <Select.SelectItem value="md" text="Markdown" />
-                </Select.Root>
-
-                <div className="flex items-center gap-1">
-                  <button
-                    type="button"
-                    className="rounded-md p-2 hover:bg-zinc-50"
-                  >
-                    <Bold className="h-4 w-4 text-zinc-500" strokeWidth={3} />
-                  </button>
-
-                  <button
-                    type="button"
-                    className="rounded-md p-2 hover:bg-zinc-50"
-                  >
-                    <Italic className="h-4 w-4 text-zinc-500" strokeWidth={3} />
-                  </button>
-
-                  <button
-                    type="button"
-                    className="rounded-md p-2 hover:bg-zinc-50"
-                  >
-                    <Link className="h-4 w-4 text-zinc-500" strokeWidth={3} />
-                  </button>
-
-                  <button
-                    type="button"
-                    className="rounded-md p-2 hover:bg-zinc-50"
-                  >
-                    <List className="h-4 w-4 text-zinc-500" strokeWidth={3} />
-                  </button>
-
-                  <button
-                    type="button"
-                    className="rounded-md p-2 hover:bg-zinc-50"
-                  >
-                    <ListOrdered
-                      className="h-4 w-4 text-zinc-500"
-                      strokeWidth={3}
-                    />
-                  </button>
-                </div>
-              </div>
-
-              <Textarea
-                id="bio"
-                defaultValue="Provident provident ex beatae minima unde modi asperiores ipsa mollitia."
-              />
-            </div>
+            <div></div>
           </div>
 
           <div className="grid grid-cols-form gap-3 pt-5">
@@ -220,12 +158,18 @@ export default function Page() {
           </div>
 
           <div className="flex items-center justify-end gap-2 pt-5">
-          <Button type="button" variant="outline">
+            <button
+              type="button"
+              className="texst-zinc-700 rounded-lg border border-zinc-300 px-4 py-2 text-sm font-semibold shadow-sm hover:bg-zinc-50"
+            >
               Cancel
-            </Button>
-            <Button type="submit" form="settings">
+            </button>
+            <button
+              type="submit"
+              className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-violet-700"
+            >
               Save
-            </Button>
+            </button>
           </div>
         </form>
       </div>
