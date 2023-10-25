@@ -157,43 +157,28 @@ export default function Page() {
                 </Select.Root>
 
                 <div className="flex items-center gap-1">
-                  <button
-                    type="button"
-                    className="rounded-md p-2 hover:bg-zinc-50"
-                  >
+                  <Button variant="ghost" type="button">
                     <Bold className="h-4 w-4 text-zinc-500" strokeWidth={3} />
-                  </button>
+                  </Button>
 
-                  <button
-                    type="button"
-                    className="rounded-md p-2 hover:bg-zinc-50"
-                  >
+                  <Button variant="ghost" type="button">
                     <Italic className="h-4 w-4 text-zinc-500" strokeWidth={3} />
-                  </button>
+                  </Button>
 
-                  <button
-                    type="button"
-                    className="rounded-md p-2 hover:bg-zinc-50"
-                  >
+                  <Button variant="ghost" type="button">
                     <Link className="h-4 w-4 text-zinc-500" strokeWidth={3} />
-                  </button>
+                  </Button>
 
-                  <button
-                    type="button"
-                    className="rounded-md p-2 hover:bg-zinc-50"
-                  >
+                  <Button variant="ghost" type="button">
                     <List className="h-4 w-4 text-zinc-500" strokeWidth={3} />
-                  </button>
+                  </Button>
 
-                  <button
-                    type="button"
-                    className="rounded-md p-2 hover:bg-zinc-50"
-                  >
+                  <Button variant="ghost" type="button">
                     <ListOrdered
                       className="h-4 w-4 text-zinc-500"
                       strokeWidth={3}
                     />
-                  </button>
+                  </Button>
                 </div>
               </div>
 
@@ -220,7 +205,7 @@ export default function Page() {
           </div>
 
           <div className="flex items-center justify-end gap-2 pt-5">
-          <Button type="button" variant="outline">
+            <Button type="button" variant="outline">
               Cancel
             </Button>
             <Button type="submit" form="settings">
