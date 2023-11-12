@@ -1,6 +1,6 @@
 import { UploadCloud, Trash2, CheckCircle2 } from 'lucide-react'
 import React from 'react'
-import { Button } from './Form/Button'
+import { Button } from '../Button'
 import { formatBytes } from '@/utils/format-bytes'
 import style from 'styled-jsx/style'
 import { VariantProps, tv } from 'tailwind-variants'
@@ -8,22 +8,24 @@ import { VariantProps, tv } from 'tailwind-variants'
 const fileItem = tv({
   slots: {
     container:
-      'group flex items-start gap-4 rounded-lg border border-zinc-200 p-4',
+      'group flex items-start gap-4 rounded-lg border border-zinc-200 p-4 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-500',
     icon: 'rounded-full border-4 border-violet-100 bg-violet-200 p-2 text-violet-600',
     deleteButton: '',
   },
   variants: {
     state: {
       progress: {
-        container: '',
+        container: 'dark:border-zinc-700',
       },
       complete: {
-        container: 'border-violet-500',
+        container: 'border-violet-500 dark:border-violet-500/30',
       },
       error: {
-        container: 'bg-error-25 border-error-300',
-        icon: 'border-error-50 bg-error-100 text-error-600',
-        deleteButton: 'text-error-700 hover:text-error-900',
+        container:
+          'bg-error-25 border-error-300 dark:bg-error-500/5 dark:border-error-500/30',
+        icon: 'border-error-50 bg-error-100 text-error-600 dark:bg-error-500/5 dark:border-error-500/30 dark:text-error-400',
+        deleteButton:
+          'text-error-700 hover:text-error-900 dark:text-error-400 dark:hover:text-error-300',
       },
     },
   },
@@ -48,14 +50,16 @@ export function FileItem({ name, size, state }: FileItemProps) {
 
       {state === 'error' ? (
         <div className="flex flex-1 flex-col items-start gap-1">
-          <div className="text-error-700 flex flex-col">
-            <span className=" text-sm font-medium">{name}</span>
+          <div className="flex flex-col text-error-700">
+            <span className="text-sm font-medium text-error-700 dark:text-error-400">
+              {name}
+            </span>
             Upload failed, please try again.
           </div>
 
           <button
             type="button"
-            className="text-error-700 hover:text-error-900 text-sm font-semibold"
+            className="text-sm font-semibold text-error-700 hover:text-error-900 dark:text-error-400 dark:hover:text-error-300"
           >
             Try again
           </button>
@@ -63,19 +67,23 @@ export function FileItem({ name, size, state }: FileItemProps) {
       ) : (
         <div className="flex flex-1 flex-col items-start gap-1">
           <div className="flex flex-col">
-            <span className="text-sm font-medium text-zinc-700">{name}</span>
-            <span className="text-sm">{formatBytes(size)}</span>
+            <span className="text-sm font-medium text-zinc-700 dark:text-zinc-100">
+              {name}
+            </span>
+            <span className="text-sm dark:text-zinc-400">
+              {formatBytes(size)}
+            </span>
           </div>
 
           <div className="flex w-full items-center gap-3">
-            <div className="h2 flex-1 rounded-full bg-zinc-100">
+            <div className="h2 flex-1 rounded-full bg-zinc-100 dark:bg-zinc-600">
               <div
-                className="h-2  rounded-full bg-violet-600"
+                className="h-2  rounded-full bg-violet-600 dark:bg-violet-400"
                 style={{ width: state === 'complete' ? '100%' : '80%' }}
               ></div>
             </div>
 
-            <span className="text-sm font-medium text-zinc-700">
+            <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
               {state === 'complete' ? '100%' : '80%'}
             </span>
           </div>

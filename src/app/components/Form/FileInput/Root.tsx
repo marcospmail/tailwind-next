@@ -1,6 +1,5 @@
 'use client'
 
-import { useScroll } from 'framer-motion'
 import {
   ComponentProps,
   createContext,
